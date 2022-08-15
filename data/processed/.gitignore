@@ -1,0 +1,5 @@
+# Ignore all files in /data/processed as of now
+*
+
+# Exceptions
+!.gitignore
