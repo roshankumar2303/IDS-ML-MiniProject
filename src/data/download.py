@@ -7,7 +7,7 @@ def download(url: str, target_file_name: str):
 
     print('\nDownloading to {}'.format(target_file_name))
     with open(target_file_name, "wb") as target_file, tqdm(
-        desc="PROGRESS".format(target_file_name),
+        desc="PROGRESS",
         total=total_size,
         unit="iB",
         unit_scale=True,

@@ -2,7 +2,7 @@
 
 ## External
 
-Externam data is the Immutable data extracted from third party sources.
+External data is the Immutable data extracted from third party sources.
 
 ## Interim
 
