@@ -9,9 +9,8 @@ ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/
 ## Requirements
 
 -   Python 3.10 - https://www.python.org/downloads/
-    
+
     > Packages required are included in `requirements.txt`. Refer below for setting up the packages
-    
 
 ## Setting up the repo locally
 
@@ -61,3 +60,5 @@ ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/
     ```
 
 -   This updates `requirements.txt` file to include new dependencies as well
+
+-   If possible, run the above command before every commit to ensure no dependecies are missed
