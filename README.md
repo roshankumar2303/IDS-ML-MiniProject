@@ -9,11 +9,14 @@ ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/
 ## Requirements
 
 -   Python 3.10 - https://www.python.org/downloads/
+    
     > Packages required are included in `requirements.txt`. Refer below for setting up the packages
+    
 
 ## Setting up the repo locally
 
 -   To clone the repo, run the following command
+
     ```
     git clone https://github.com/roshankumar2303/IDS-ML-MiniProject.git
     ```
@@ -44,6 +47,7 @@ ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/
 ## Installing the Dependencies
 
 -   After activating the virtual environment, to install all the required dependencies, run the following command
+
     ```
     pip install -r requirements.txt
     ```
