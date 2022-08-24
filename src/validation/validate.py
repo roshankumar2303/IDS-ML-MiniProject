@@ -11,7 +11,7 @@ sys.path.insert(0, os.getcwd())
 # ------------------------------------------------------------
 from src.features.build_features import build_features
 from src.features.clean_data import clean_data
-from src.validation.select_classifier import select_classifier
+from src.model.select_classifier import select_classifier
 
 
 # Read the Interim Training Set
