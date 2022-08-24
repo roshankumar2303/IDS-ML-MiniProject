@@ -15,7 +15,7 @@ from src.features.clean_data import clean_data
 
 
 # Check for Generated Model Reports
-report_glob = (Path.cwd() / "reports").glob("model_report_*.json")
+report_glob = (Path.cwd() / "reports").glob("report-model-*.json")
 report_paths = [r.resolve() for r in report_glob if r.is_file()]
 if len(report_paths) == 0:
     print("No Model Reports Found in ./reports...")
@@ -35,11 +35,14 @@ for path in report_paths:
 # Iteration over Reports to test each model
 for report in reports:
     # Loading the Model
-    model_path = (Path.cwd() / "models/{}.sav".format(report["clf_name"])).resolve()
+    model_path = (
+        Path.cwd()
+        / "models/{}-{}.sav".format(report["clf_name"], report["feature_selector"])
+    ).resolve()
     if model_path.is_file() == False:
         print(
-            "Corresponding Model for '{}' NOT FOUND in ./models...".format(
-                report["clf_name"]
+            "Corresponding Model for '{}-{}' NOT FOUND in ./models...".format(
+                report["clf_name"], report["feature_selector"]
             )
         )
         print("Please try running src/model/train_model.py to train the model...")
@@ -70,11 +73,14 @@ for report in reports:
 
     # Create Heatmap of Confusion Matrix
     heatmap_path = (
-        Path.cwd() / "reports/testing_cm_heatmap_{}.png".format(report["clf_name"])
+        Path.cwd()
+        / "reports/report-test-hm-{}-{}.png".format(
+            report["clf_name"], report["feature_selector"]
+        )
     ).resolve()
     print("Exporting CM heatmap to {}".format(heatmap_path))
     heatmap = sns.heatmap(c_mat, cmap="rocket_r", annot=True, fmt="d")
-    plt.savefig(heatmap_path, dpi=400)
+    plt.savefig(heatmap_path, dpi=300)
     plt.clf()
 
 print("\nTesting Complete")
