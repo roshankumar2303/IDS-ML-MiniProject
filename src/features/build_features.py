@@ -1,7 +1,9 @@
 import sys, os
 import numpy as np
 import pandas as pd
-from sklearn.feature_selection import RFE, SelectKBest, f_classif
+from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.feature_selection import RFE
+from sklearn.tree import DecisionTreeClassifier
 
 # ------------------------------------------------------------
 # Adding CWD to path, for local module imports
@@ -26,12 +28,14 @@ def select_k_best_features(X: pd.DataFrame, Y: pd.DataFrame):
     return features_list, X, Y
 
 
-def recursive_feature_elimination(X: pd.DataFrame, Y: pd.DataFrame, estimator):
+def recursive_feature_elimination(X: pd.DataFrame, Y: pd.DataFrame):
     # Cleaning the Data
     X, Y = clean_data(X, Y)
 
-    # Feature selection using RFE
-    rfe_selector = RFE(estimator=estimator, n_features_to_select=50, step=1)
+    # Feature selection using RFE with Decision Tree as estimator
+    rfe_selector = RFE(
+        estimator=DecisionTreeClassifier(), n_features_to_select=50, step=1
+    )
     rfe_selector.fit(X, np.ravel(Y))
     features_list = list(X.columns[rfe_selector.get_support()])
     for column in X:
