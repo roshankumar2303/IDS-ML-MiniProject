@@ -13,7 +13,7 @@ from sklearn.metrics import (
 # Adding CWD to path, for local module imports
 sys.path.insert(0, os.getcwd())
 # ------------------------------------------------------------
-from src.features.build_features import build_features
+from src.features.build_features import select_k_best_features
 from src.features.clean_data import clean_data
 from src.model.select_classifier import select_classifier
 
@@ -55,7 +55,7 @@ for train_idx, val_idx in skf.split(X, Y):
 
     # Clean data and perform feature selection on Training-X data
     print("Performing feature selection on training data...")
-    features, train_X_fold, train_Y_fold = build_features(train_X_fold, train_Y_fold)
+    features, train_X_fold, train_Y_fold = select_k_best_features(train_X_fold, train_Y_fold)
     for feature in features:
         if feature in report["clf_features"]:
             report["clf_features"][feature] += 1

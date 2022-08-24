@@ -9,7 +9,7 @@ from pathlib import Path
 # Adding CWD to path, for local module imports
 sys.path.insert(0, os.getcwd())
 # ------------------------------------------------------------
-from src.features.build_features import build_features
+from src.features.build_features import select_k_best_features
 from src.model.select_classifier import select_classifier
 
 
@@ -26,7 +26,7 @@ X_train = training_set.iloc[:, 0 : yc - 1]
 Y_train = training_set.iloc[:, yc - 1]
 
 # Feature Selection
-report["clf_features"], X_train, Y_train = build_features(X_train, Y_train)
+report["clf_features"], X_train, Y_train = select_k_best_features(X_train, Y_train)
 
 # Choosing Classifier for Model Training
 report["clf_name"], classifier = select_classifier()

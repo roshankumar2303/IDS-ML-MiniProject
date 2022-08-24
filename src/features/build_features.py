@@ -10,7 +10,7 @@ sys.path.insert(0, os.getcwd())
 from src.features.clean_data import clean_data
 
 
-def build_features(X: pd.DataFrame, Y: pd.DataFrame):
+def select_k_best_features(X: pd.DataFrame, Y: pd.DataFrame):
     # Cleaning the Data
     X, Y = clean_data(X, Y)
 
