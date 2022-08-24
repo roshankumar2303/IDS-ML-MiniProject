@@ -62,3 +62,19 @@ ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/
 -   This updates `requirements.txt` file to include new dependencies as well
 
 -   If possible, run the above command before every commit to ensure no dependecies are missed
+
+## Running the Project
+
+The following is the order in which the scripts are supposed to run (This order is mandatory):
+
+### `src/data/get_dataset.py`
+
+-   This script downloads the External dataset to the disk. If there's any non-network issue in downloading, please verify the link provided in the script
+
+### `src/data/train_test_split.py`
+
+-   This script splits the External dataset into Training (0.8) and Testing (0.2) sets
+
+### `src/validation/validate.py`
+
+-   This script performs Stratified K fold cross validation. Throughout the process, in each iteration, features are selected for the Training fold seperately, and the Model is trained with the Processed Training Fold and Tested against the Testing fold.
