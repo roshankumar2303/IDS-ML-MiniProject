@@ -1,6 +1,7 @@
 import sys, os
+import numpy as np
 import pandas as pd
-from sklearn.feature_selection import SelectKBest, chi2
+from sklearn.feature_selection import SelectKBest, f_classif
 
 # ------------------------------------------------------------
 # Adding CWD to path, for local module imports
@@ -10,11 +11,12 @@ from src.features.clean_data import clean_data
 
 
 def build_features(X: pd.DataFrame, Y: pd.DataFrame):
+    # Cleaning the Data
     X, Y = clean_data(X, Y)
 
     # Feature selection using SelectKBest
-    k_best = SelectKBest(score_func=chi2, k=50)
-    k_best.fit(X, Y)
+    k_best = SelectKBest(score_func=f_classif, k=50)
+    k_best.fit(X, np.ravel(Y))
     features_list = list(X.columns[k_best.get_support()])
     for column in X:
         if column not in features_list:

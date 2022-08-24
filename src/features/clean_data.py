@@ -8,10 +8,6 @@ sys.path.insert(0, os.getcwd())
 
 
 def clean_data(X: pd.DataFrame, Y: pd.DataFrame):
-    # Cleaning the data
-    for column in X:
-        X[column] = pd.to_numeric(X[column], errors="coerce")
-
     # Filling the missing values
     X.fillna(method="ffill", inplace=True)
 

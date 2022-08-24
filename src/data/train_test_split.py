@@ -19,10 +19,25 @@ new_labels = {
 external_dataset.drop(columns="label", inplace=True)
 external_dataset["type"].replace(to_replace=new_labels, inplace=True)
 
+# Converting unknown types to numeric
+for column in external_dataset:
+    external_dataset[column] = pd.to_numeric(external_dataset[column], errors="coerce")
+
+# Dropping "ts" (timestamp) column
+external_dataset.drop(columns="ts", inplace=True)
+
+# Dropping Constant Columns
+for column in external_dataset:
+    if external_dataset[column].nunique() == 1:
+        external_dataset.drop(columns=column, inplace=True)
+
+# Resulting shape of External Dataset
+xc, yc = external_dataset.shape
+
 # Splitting into train and test sets
 X_train, X_test, Y_train, Y_test = train_test_split(
-    external_dataset.iloc[:, 0:125],
-    external_dataset.iloc[:, 125],
+    external_dataset.iloc[:, 0 : yc - 1],
+    external_dataset.iloc[:, yc - 1],
     test_size=0.2,
     random_state=1,
 )

@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from sklearn.model_selection import StratifiedKFold
-from sklearn.neighbors import KNeighborsClassifier
 
 # ------------------------------------------------------------
 # Adding CWD to path, for local module imports
@@ -12,6 +11,7 @@ sys.path.insert(0, os.getcwd())
 # ------------------------------------------------------------
 from src.features.build_features import build_features
 from src.features.clean_data import clean_data
+from src.validation.select_classifier import select_classifier
 
 
 # Read the Interim Training Set
@@ -26,21 +26,22 @@ Y = training_set.iloc[:, yc - 1]
 # Cross Validation - Stratified K fold
 skf = StratifiedKFold(n_splits=5)
 
-# Classifier
-knn = KNeighborsClassifier(n_neighbors=5)
-knn_scores = []
-knn_best_features = {}
+# Choosing Classifier for Cross Validation
+classifier_name, classifier = select_classifier()
+classifier_scores = []
+classifier_best_features = {}
+print("\n{}".format(classifier_name))
 
-# Splitting into 5 folds + Feature Selection + Validation
+# Splitting into 5 folds + Feature Selection for Training Fold + Validation
 iter_count = 1
-for train_idx, test_idx in skf.split(X, Y):
+for train_idx, val_idx in skf.split(X, Y):
     print("\nSTRATIFIED K FOLD - ITERATION {}".format(iter_count))
 
-    # Get Training fold (4/5 folds) and Testing fold (1/5 folds)
+    # Get Training fold (4/5 folds) and Validation fold (1/5 folds)
     train_X_fold = pd.DataFrame(X.iloc[train_idx])
     train_Y_fold = pd.DataFrame(Y.iloc[train_idx])
-    test_X_fold = pd.DataFrame(X.iloc[test_idx])
-    test_Y_fold = pd.DataFrame(Y.iloc[test_idx])
+    val_X_fold = pd.DataFrame(X.iloc[val_idx])
+    val_Y_fold = pd.DataFrame(Y.iloc[val_idx])
 
     # Clean data and Build features for the Training Fold
     print("Building features for Training fold...")
@@ -48,34 +49,36 @@ for train_idx, test_idx in skf.split(X, Y):
         train_X_fold, train_Y_fold
     )
     for ft in feature_list:
-        if ft in knn_best_features:
-            knn_best_features[ft] += 1
+        if ft in classifier_best_features:
+            classifier_best_features[ft] += 1
         else:
-            knn_best_features[ft] = 1
+            classifier_best_features[ft] = 1
 
     # Train Model using the Classifier
     print("Training the model using Training Fold...")
-    knn.fit(train_X_fold, np.ravel(train_Y_fold))
+    classifier.fit(train_X_fold, np.ravel(train_Y_fold))
 
-    # Clean data and drop unwanted features of the Testing fold
-    test_X_fold, test_Y_fold = clean_data(test_X_fold, test_Y_fold)
-    for column in test_X_fold:
+    # Clean data and drop unwanted features from Validation fold
+    val_X_fold, val_Y_fold = clean_data(val_X_fold, val_Y_fold)
+    for column in val_X_fold:
         if column not in feature_list:
-            test_X_fold.drop(columns=column, inplace=True)
+            val_X_fold.drop(columns=column, inplace=True)
 
     # Get the model score
-    print("Calculating scores using the Training and Testing Folds...")
-    knn_scores.append(knn.score(test_X_fold, np.ravel(test_Y_fold)))
+    print("Getting Model Scores...")
+    classifier_scores.append(classifier.score(val_X_fold, np.ravel(val_Y_fold)))
 
     # Increase Iteration Count
     iter_count += 1
 
-# Dump all the list of features selected into a JSON file
-knn_features_path = (Path.cwd() / "data/processed/knn_features.json").resolve()
-with open(knn_features_path, "w") as json_file:
-    json.dump(knn_best_features, json_file)
+# Dump the list of selected features into a JSON file
+classifier_features_path = (
+    Path.cwd() / "reports/{}_BEST_FEATURES.json".format(classifier_name)
+).resolve()
+with open(classifier_features_path, "w") as json_file:
+    json.dump(classifier_best_features, json_file)
 
-print("\nACCURACY SCORES:", knn_scores)
+print("\nACCURACY SCORES of {}:".format(classifier_name), classifier_scores)
 
 # ------------------------------------------------------------
 # Reset - Removing CWD from path
