@@ -1,0 +1,121 @@
+{
+    "clf_name": "knn",
+    "clf_precision": [
+        0.9675558024607922, 0.9656150189036997, 0.9650068395770988,
+        0.9661466736954959, 0.9665628468531673
+    ],
+    "clf_recall": [
+        0.9669909659485754, 0.9657748436414176, 0.9652536483669215,
+        0.9662960389159139, 0.9666435024322446
+    ],
+    "clf_fbeta": [
+        0.9671665833982603, 0.9653858353271784, 0.9650972027091458,
+        0.9661665222182056, 0.9664235231139139
+    ],
+    "clf_support": [null, null, null, null, null],
+    "clf_confusion_matrix": [
+        [
+            [3873, 22, 26, 27, 0, 7, 11, 12],
+            [9, 730, 0, 0, 0, 0, 0, 0],
+            [16, 0, 68, 0, 0, 0, 1, 0],
+            [16, 0, 0, 84, 0, 0, 0, 0],
+            [2, 0, 0, 0, 0, 0, 0, 0],
+            [23, 0, 0, 0, 0, 559, 0, 0],
+            [12, 0, 0, 0, 0, 0, 58, 0],
+            [6, 0, 0, 0, 0, 0, 0, 194]
+        ],
+        [
+            [3870, 41, 16, 27, 0, 5, 11, 8],
+            [7, 732, 0, 0, 0, 0, 0, 0],
+            [30, 0, 49, 0, 0, 0, 6, 0],
+            [14, 0, 0, 86, 0, 0, 0, 0],
+            [2, 0, 0, 0, 0, 0, 0, 0],
+            [14, 0, 0, 0, 0, 568, 0, 0],
+            [8, 1, 1, 0, 0, 0, 59, 0],
+            [3, 0, 0, 0, 0, 3, 0, 195]
+        ],
+        [
+            [3871, 24, 28, 21, 0, 13, 11, 10],
+            [8, 730, 0, 0, 0, 0, 0, 0],
+            [22, 1, 59, 0, 0, 2, 2, 0],
+            [22, 0, 0, 77, 0, 0, 0, 0],
+            [2, 0, 0, 0, 0, 0, 0, 0],
+            [11, 0, 0, 0, 0, 572, 0, 0],
+            [13, 0, 2, 0, 0, 1, 53, 0],
+            [7, 0, 0, 0, 0, 0, 0, 194]
+        ],
+        [
+            [3880, 19, 26, 25, 0, 8, 10, 10],
+            [12, 725, 0, 0, 0, 1, 0, 0],
+            [23, 1, 62, 0, 0, 0, 0, 0],
+            [19, 0, 0, 80, 0, 0, 0, 0],
+            [2, 0, 0, 0, 0, 0, 0, 0],
+            [12, 0, 0, 0, 0, 571, 0, 0],
+            [17, 0, 1, 0, 0, 0, 51, 0],
+            [7, 0, 0, 0, 0, 1, 0, 193]
+        ],
+        [
+            [3878, 35, 32, 14, 0, 3, 7, 9],
+            [12, 726, 0, 0, 0, 0, 0, 0],
+            [25, 1, 59, 0, 0, 0, 0, 0],
+            [12, 0, 0, 87, 0, 0, 0, 1],
+            [3, 0, 0, 0, 0, 0, 0, 0],
+            [7, 0, 0, 0, 0, 576, 0, 0],
+            [18, 0, 3, 0, 0, 0, 48, 0],
+            [10, 0, 0, 0, 0, 0, 0, 190]
+        ]
+    ],
+    "clf_features": {
+        "Processor_pct_ Idle_Time": 5,
+        "Processor_pct_ Interrupt_Time": 5,
+        "Processor_pct_ User_Time": 5,
+        "Processor_pct_ C1_Time": 5,
+        "Processor_pct_ Processor_Time": 5,
+        "Processor_pct_ DPC_Time": 5,
+        "Processor_pct_ Privileged_Time": 5,
+        "Processor_Interrupts_sec": 5,
+        "Process_Pool_Paged Bytes": 5,
+        "Process_Working_Set_ Private": 5,
+        "Process_Working_Set_Peak": 5,
+        "Process_Page_File Bytes": 5,
+        "Process_pct_ User_Time": 5,
+        "Process_Virtual_Bytes Peak": 5,
+        "Process_Page_File Bytes Peak": 5,
+        "Process_Private_Bytes": 5,
+        "Process_Virtual_Bytes": 5,
+        "Process_Working Set": 5,
+        "Process_IO Other Operations_sec": 5,
+        "Process_Thread Count": 5,
+        "Process_pct_ Privileged_Time": 5,
+        "Process_Handle Count": 5,
+        "Network_I(Intel R _82574L_GNC)TCP_APS": 5,
+        "Network_I(Intel R _82574L_GNC) Bytes Sent sec": 5,
+        "Network_I(Intel R _82574L_GNC) Packets Sent Unicast sec": 5,
+        "Network_I(Intel R _82574L_GNC) Packets sec": 4,
+        "Network_I(Intel R _82574L_GNC) Packets Sent sec": 5,
+        "Memory Pool Paged Bytes": 5,
+        "Memory Free & Zero Page List Bytes": 5,
+        "Memory Cache Bytes Peak": 5,
+        "Memory Available Bytes": 5,
+        "Memory Commit Limit": 5,
+        "Memory Available KBytes": 5,
+        "Memory Pages sec": 5,
+        "Memory Cache Bytes": 5,
+        "Memory Pool Nonpaged Bytes": 5,
+        "Memory System Cache Resident Bytes": 5,
+        "Memory Long-Term Average Standby Cache Lifetime (s)": 5,
+        "Memory Standby Cache Reserve Bytes": 5,
+        "Memory Standby Cache Core Bytes": 5,
+        "Memory System Driver Resident Bytes": 5,
+        "Memory Standby Cache Normal Priority Bytes": 5,
+        "Memory pct_ Committed Bytes In Use": 5,
+        "Memory Available MBytes": 5,
+        "Memory Committed Bytes": 5,
+        "Memory System Driver Total Bytes": 5,
+        "Memory Pool Paged Resident Bytes": 5,
+        "LogicalDisk(_Total) pct_ Free Space": 5,
+        "LogicalDisk(_Total) Free Megabytes": 5,
+        "LogicalDisk(_Total) Disk Bytes sec": 5,
+        "Network_I(Intel R _82574L_GNC) TCP Active RSC Connections": 1
+    }
+}

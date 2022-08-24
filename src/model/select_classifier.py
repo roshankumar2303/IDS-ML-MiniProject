@@ -20,16 +20,19 @@ def select_classifier():
         choice = int(input())
 
         if choice == 1:
-            name = "KNN"
+            name = "knn"
             classifier = KNeighborsClassifier(n_neighbors=5)
+            print("\nMODEL SELECTED - {}".format(name))
             return name, classifier
         if choice == 2:
-            name = "NAIVE_BAYES"
+            name = "naive_bayes"
             classifier = GaussianNB()
+            print("\nMODEL SELECTED - {}".format(name))
             return name, classifier
         if choice == 3:
-            name = "SVM"
+            name = "svm"
             classifier = SVC(kernel="poly", degree=8)
+            print("\nMODEL SELECTED - {}".format(name))
             return name, classifier
 
 

@@ -4,6 +4,10 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import (
+    precision_recall_fscore_support,
+    confusion_matrix,
+)
 
 # ------------------------------------------------------------
 # Adding CWD to path, for local module imports
@@ -23,62 +27,77 @@ xc, yc = training_set.shape
 X = training_set.iloc[:, 0 : yc - 1]
 Y = training_set.iloc[:, yc - 1]
 
-# Cross Validation - Stratified K fold
+# CROSS VALIDATION - STRATIFIED K-FOLD - (k = 5)
 skf = StratifiedKFold(n_splits=5)
+report = {
+    "clf_name": "",
+    "clf_precision": [],
+    "clf_recall": [],
+    "clf_fbeta": [],
+    "clf_support": [],
+    "clf_confusion_matrix": [],
+    "clf_features": {},
+}
 
 # Choosing Classifier for Cross Validation
-classifier_name, classifier = select_classifier()
-classifier_scores = []
-classifier_best_features = {}
-print("\n{}".format(classifier_name))
+report["clf_name"], classifier = select_classifier()
 
-# Splitting into 5 folds + Feature Selection for Training Fold + Validation
+# K-ITERATIONS OF STRATIFIED K-FOLD CROSS VALIDATION
 iter_count = 1
 for train_idx, val_idx in skf.split(X, Y):
     print("\nSTRATIFIED K FOLD - ITERATION {}".format(iter_count))
 
-    # Get Training fold (4/5 folds) and Validation fold (1/5 folds)
+    # Get Training fold (4/5 folds) (X, Y) and Validation fold (1/5 folds) (X, Y)
     train_X_fold = pd.DataFrame(X.iloc[train_idx])
     train_Y_fold = pd.DataFrame(Y.iloc[train_idx])
     val_X_fold = pd.DataFrame(X.iloc[val_idx])
     val_Y_fold = pd.DataFrame(Y.iloc[val_idx])
 
-    # Clean data and Build features for the Training Fold
-    print("Building features for Training fold...")
-    feature_list, train_X_fold, train_Y_fold = build_features(
-        train_X_fold, train_Y_fold
-    )
-    for ft in feature_list:
-        if ft in classifier_best_features:
-            classifier_best_features[ft] += 1
+    # Clean data and perform feature selection on Training-X data
+    print("Performing feature selection on training data...")
+    features, train_X_fold, train_Y_fold = build_features(train_X_fold, train_Y_fold)
+    for feature in features:
+        if feature in report["clf_features"]:
+            report["clf_features"][feature] += 1
         else:
-            classifier_best_features[ft] = 1
+            report["clf_features"][feature] = 1
 
-    # Train Model using the Classifier
-    print("Training the model using Training Fold...")
+    # Train the model with the Training-X data
+    print("Training the model...")
     classifier.fit(train_X_fold, np.ravel(train_Y_fold))
 
-    # Clean data and drop unwanted features from Validation fold
+    # Clean data and drop unwanted features from Validation-X data
     val_X_fold, val_Y_fold = clean_data(val_X_fold, val_Y_fold)
     for column in val_X_fold:
-        if column not in feature_list:
+        if column not in features:
             val_X_fold.drop(columns=column, inplace=True)
 
-    # Get the model score
-    print("Getting Model Scores...")
-    classifier_scores.append(classifier.score(val_X_fold, np.ravel(val_Y_fold)))
+    # Predict-Y using Validation-X
+    pred_Y_fold = classifier.predict(val_X_fold)
+
+    # Generate model metrics
+    print("Generating model metrics...")
+    precision, recall, fbeta, support = precision_recall_fscore_support(
+        val_Y_fold, pred_Y_fold, average="weighted", zero_division=0
+    )
+    c_mat = confusion_matrix(val_Y_fold, pred_Y_fold).tolist()
+    report["clf_precision"].append(precision)
+    report["clf_recall"].append(recall)
+    report["clf_fbeta"].append(fbeta)
+    report["clf_support"].append(support)
+    report["clf_confusion_matrix"].append(c_mat)
 
     # Increase Iteration Count
     iter_count += 1
 
-# Dump the list of selected features into a JSON file
-classifier_features_path = (
-    Path.cwd() / "reports/{}_BEST_FEATURES.json".format(classifier_name)
+# Dump the validation report into a JSON file
+report_path = (
+    Path.cwd() / "reports/validation_report_{}.json".format(report["clf_name"])
 ).resolve()
-with open(classifier_features_path, "w") as json_file:
-    json.dump(classifier_best_features, json_file)
+with open(report_path, "w") as json_file:
+    json.dump(report, fp=json_file, indent=4)
+print("\nValidation Report generated at {}".format(report_path))
 
-print("\nACCURACY SCORES of {}:".format(classifier_name), classifier_scores)
 
 # ------------------------------------------------------------
 # Reset - Removing CWD from path

@@ -1,6 +1,7 @@
 import sys, os
 import pandas as pd
 import numpy as np
+import json
 import joblib
 from pathlib import Path
 
@@ -12,6 +13,9 @@ from src.features.build_features import build_features
 from src.model.select_classifier import select_classifier
 
 
+# Report for model training stats
+report = {"clf_name": "", "clf_features": []}
+
 # Read the Interim Training Set
 training_set_path = (Path.cwd() / "data/interim/training-set.csv").resolve()
 training_set = pd.read_csv(training_set_path, low_memory=False)
@@ -22,19 +26,26 @@ X_train = training_set.iloc[:, 0 : yc - 1]
 Y_train = training_set.iloc[:, yc - 1]
 
 # Feature Selection
-feature_list, X_train, Y_train = build_features(X_train, Y_train)
+report["clf_features"], X_train, Y_train = build_features(X_train, Y_train)
 
 # Choosing Classifier for Model Training
-classifier_name, classifier = select_classifier()
-print("\nMODEL SELECTED - {}".format(classifier_name))
+report["clf_name"], classifier = select_classifier()
 
 # Training the Model
-model = classifier.fit(X_train, np.ravel(Y_train))
+classifier.fit(X_train, np.ravel(Y_train))
+
+# Dump the model training report into a JSON file
+report_path = (
+    Path.cwd() / "reports/model_report_{}.json".format(report["clf_name"])
+).resolve()
+with open(report_path, "w") as json_file:
+    json.dump(report, json_file, indent=4)
+print("\nModel Report generated at {}".format(report_path))
 
 # Exporting the Model
-model_path = (Path.cwd() / "models/{}_MODEL.sav".format(classifier_name)).resolve()
-print("\nExporting {} MODEL to {}\n".format(classifier_name, model_path))
-joblib.dump(model, model_path)
+model_path = (Path.cwd() / "models/{}.sav".format(report["clf_name"])).resolve()
+print("Exporting '{}' model as '.sav' to {}\n".format(report["clf_name"], model_path))
+joblib.dump(classifier, model_path)
 
 
 # ------------------------------------------------------------
