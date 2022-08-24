@@ -65,7 +65,7 @@ ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/
 
 ## Running the Project
 
-The following is the order in which the scripts are supposed to run (This order is mandatory):
+The following is the order in which the scripts are supposed to be run (This order is mandatory):
 
 ### `src/data/get_dataset.py`
 
@@ -73,8 +73,39 @@ The following is the order in which the scripts are supposed to run (This order 
 
 ### `src/data/train_test_split.py`
 
--   This script splits the External dataset into Training (0.8) and Testing (0.2) sets
+-   Before splitting into Train & Test sets, the following transformations are made by this script:
+
+    -   The output columns `label` and `type` are merged into a single column `type`; with string labels converted into numbers as follows:
+
+    ```
+    "normal": 0
+    "ddos": 1
+    "dos": 2
+    "injection": 3
+    "mitm": 4
+    "password": 5
+    "scanning": 6
+    "xss": 7
+    ```
+
+    -   Unknown datatypes are converted into numeric (In case the conversion fails, the cells are filled with `NaN` instead)
+
+    -   The timestamp column `ts` (1st column) is dropped since it is irrelevant to the output
+
+    -   All the constant columns (i.e., columns filled with a single value) are also dropped
+
+-   After all the above steps, this script splits the External dataset into Training (0.8) and Testing (0.2) sets
 
 ### `src/validation/validate.py`
 
--   This script performs Stratified K fold cross validation. Throughout the process, in each iteration, features are selected for the Training fold seperately, and the Model is trained with the Processed Training Fold and Tested against the Testing fold.
+-   This script performs Stratified K fold cross validation. i.e., each fold maintains the same o/p class ratio
+
+-   The training set is split into k `(k = 5)` folds (or partitions); and the model is trained and tested over k `(k = 5)` iterations
+
+-   In each iteration, the **_Training fold_** is made of `k - 1` (i.e., 4) folds from the original training set, whereas the **_Validation fold_** is made of 1 fold from original training set
+
+-   Throughout the process, in each iteration, feature selection is performed on the **_Training fold_** seperately.
+
+-   The Model is then trained with the Processed **_Training Fold_** and Tested against the **_Validation fold_**.
+
+-   At the end, the script provides the list of best features for the model, and the performance metrics of the model
