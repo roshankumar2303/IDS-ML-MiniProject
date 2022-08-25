@@ -1,0 +1,527 @@
+{
+    "Processor_DPC_Rate": {
+        "object": "Processor",
+        "counter": "DPC Rate",
+        "instance": "_Total"
+    },
+    "Processor_pct_ Idle_Time": {
+        "object": "Processor",
+        "counter": "% Idle Time",
+        "instance": "_Total"
+    },
+    "Processor_pct_ Interrupt_Time": {
+        "object": "Processor",
+        "counter": "% Interrupt Time",
+        "instance": "_Total"
+    },
+    "Processor_pct_ User_Time": {
+        "object": "Processor",
+        "counter": "% User Time",
+        "instance": "_Total"
+    },
+    "Processor_pct_ C1_Time": {
+        "object": "Processor",
+        "counter": "% C1 Time",
+        "instance": "_Total"
+    },
+    "Processor_pct_ Processor_Time": {
+        "object": "Processor",
+        "counter": "% Processor Time",
+        "instance": "_Total"
+    },
+    "Processor_C1_ransitions_sec": {
+        "object": "Processor",
+        "counter": "C1 Transitions/sec",
+        "instance": "_Total"
+    },
+    "Processor_pct_ DPC_Time": {
+        "object": "Processor",
+        "counter": "% DPC Time",
+        "instance": "_Total"
+    },
+    "Processor_pct_ Privileged_Time": {
+        "object": "Processor",
+        "counter": "% Privileged Time",
+        "instance": "_Total"
+    },
+    "Processor_DPCs_Queued_sec": {
+        "object": "Processor",
+        "counter": "DPCs Queued/sec",
+        "instance": "_Total"
+    },
+    "Processor_Interrupts_sec": {
+        "object": "Processor",
+        "counter": "Interrupts/sec",
+        "instance": "_Total"
+    },
+    "Process_Pool_Paged Bytes": {
+        "object": "Process",
+        "counter": "Pool Paged Bytes",
+        "instance": "_Total"
+    },
+    "Process_IO Read_Operations_sec": {
+        "object": "Process",
+        "counter": "IO Read Operations/sec",
+        "instance": "_Total"
+    },
+    "Process_Working_Set_ Private": {
+        "object": "Process",
+        "counter": "Working Set Private",
+        "instance": "_Total"
+    },
+    "Process_Working_Set_Peak": {
+        "object": "Process",
+        "counter": "Working Set Peak",
+        "instance": "_Total"
+    },
+    "Process_IO_Write Operations_sec": {
+        "object": "Process",
+        "counter": "IO Write Operations/sec",
+        "instance": "_Total"
+    },
+    "Process_Page_File Bytes": {
+        "object": "Process",
+        "counter": "Page File Bytes",
+        "instance": "_Total"
+    },
+    "Process_pct_ User_Time": {
+        "object": "Process",
+        "counter": "% User Time",
+        "instance": "_Total"
+    },
+    "Process_Virtual_Bytes Peak": {
+        "object": "Process",
+        "counter": "Virtual Bytes Peak",
+        "instance": "_Total"
+    },
+    "Process_Page_File Bytes Peak": {
+        "object": "Process",
+        "counter": "Page File Bytes Peak",
+        "instance": "_Total"
+    },
+    "Process_IO_Other_Bytes_sec": {
+        "object": "Process",
+        "counter": "IO Other Bytes/sec",
+        "instance": "_Total"
+    },
+    "Process_Private_Bytes": {
+        "object": "Process",
+        "counter": "Private Bytes",
+        "instance": "_Total"
+    },
+    "Process_IO_Write_Bytes_sec": {
+        "object": "Process",
+        "counter": "IO Write Bytes/sec",
+        "instance": "_Total"
+    },
+    "Process_Virtual_Bytes": {
+        "object": "Process",
+        "counter": "Virtual Bytes",
+        "instance": "_Total"
+    },
+    "Process_pct_ Processor_Time": {
+        "object": "Process",
+        "counter": "% Processor Time",
+        "instance": "_Total"
+    },
+    "Process_Pool Nonpaged Bytes": {
+        "object": "Process",
+        "counter": "Pool Nonpaged Bytes",
+        "instance": "_Total"
+    },
+    "Process_Working Set": {
+        "object": "Process",
+        "counter": "Working Set",
+        "instance": "_Total"
+    },
+    "Process_Page Faults_sec": {
+        "object": "Process",
+        "counter": "Page Faults/sec",
+        "instance": "_Total"
+    },
+    "Process_IO Other Operations_sec": {
+        "object": "Process",
+        "counter": "IO Other Operations/sec",
+        "instance": "_Total"
+    },
+    "Process_IO Data Operations_sec": {
+        "object": "Process",
+        "counter": "IO Data Operations/sec",
+        "instance": "_Total"
+    },
+    "Process_Thread Count": {
+        "object": "Process",
+        "counter": "Thread Count",
+        "instance": "_Total"
+    },
+    "Process_pct_ Privileged_Time": {
+        "object": "Process",
+        "counter": "% Privileged Time",
+        "instance": "_Total"
+    },
+    "Process_IO Data Bytes_sec": {
+        "object": "Process",
+        "counter": "IO Data Bytes/sec",
+        "instance": "_Total"
+    },
+    "Process_IO Read Bytes_sec": {
+        "object": "Process",
+        "counter": "IO Read Bytes/sec",
+        "instance": "_Total"
+    },
+    "Process_Handle Count": {
+        "object": "Process",
+        "counter": "Handle Count",
+        "instance": "_Total"
+    },
+    "Network_I(Intel R _82574L_GNC)TCP_APS": {
+        "object": "Network Interface",
+        "counter": "TCP RSC Average Packet Size",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Bytes Received sec": {
+        "object": "Network Interface",
+        "counter": "Bytes Received/sec",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Bytes Sent sec": {
+        "object": "Network Interface",
+        "counter": "Bytes Sent/sec",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Bytes Total sec": {
+        "object": "Network Interface",
+        "counter": "Bytes Total/sec",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Packets Sent Unicast sec": {
+        "object": "Network Interface",
+        "counter": "Packets Sent Unicast/sec",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Packets Received sec": {
+        "object": "Network Interface",
+        "counter": "Packets Received/sec",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Current Bandwidth": {
+        "object": "Network Interface",
+        "counter": "Current Bandwidth",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Packets sec": {
+        "object": "Network Interface",
+        "counter": "Packets/sec",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) TCP Active RSC Connections": {
+        "object": "Network Interface",
+        "counter": "TCP Active RSC Connections",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Packets Sent sec": {
+        "object": "Network Interface",
+        "counter": "Packets Sent/sec",
+        "instance": ""
+    },
+    "Network_I(Intel R _82574L_GNC) Packets Received Unicast sec": {
+        "object": "Network Interface",
+        "counter": "Packets Received Unicast/sec",
+        "instance": ""
+    },
+    "Memory Pool Paged Bytes": {
+        "object": "Memory",
+        "counter": "Pool Paged Bytes",
+        "instance": ""
+    },
+    "Memory Free & Zero Page List Bytes": {
+        "object": "Memory",
+        "counter": "Free & Zero Page List Bytes",
+        "instance": ""
+    },
+    "Memory Cache Bytes Peak": {
+        "object": "Memory",
+        "counter": "Cache Bytes Peak",
+        "instance": ""
+    },
+    "Memory System Code Resident Bytes": {
+        "object": "Memory",
+        "counter": "System Code Resident Bytes",
+        "instance": ""
+    },
+    "Memory Available Bytes": {
+        "object": "Memory",
+        "counter": "Available Bytes",
+        "instance": ""
+    },
+    "Memory Commit Limit": {
+        "object": "Memory",
+        "counter": "Commit Limit",
+        "instance": ""
+    },
+    "Memory Transition Pages RePurposed sec": {
+        "object": "Memory",
+        "counter": "Transition Pages RePurposed/sec",
+        "instance": ""
+    },
+    "Memory Pages Output sec": {
+        "object": "Memory",
+        "counter": "Pages Output/sec",
+        "instance": ""
+    },
+    "Memory Page Reads sec": {
+        "object": "Memory",
+        "counter": "Page Reads/sec",
+        "instance": ""
+    },
+    "Memory Demand Zero Faults sec": {
+        "object": "Memory",
+        "counter": "Demand Zero Faults/sec",
+        "instance": ""
+    },
+    "Memory Available KBytes": {
+        "object": "Memory",
+        "counter": "Available KBytes",
+        "instance": ""
+    },
+    "Memory Pages sec": {
+        "object": "Memory",
+        "counter": "Pages/sec",
+        "instance": ""
+    },
+    "Memory Cache Bytes": {
+        "object": "Memory",
+        "counter": "Cache Bytes",
+        "instance": ""
+    },
+    "Memory Pool Nonpaged Bytes": {
+        "object": "Memory",
+        "counter": "Pool Nonpaged Bytes",
+        "instance": ""
+    },
+    "Memory Page Faults sec": {
+        "object": "Memory",
+        "counter": "Page Faults/sec",
+        "instance": ""
+    },
+    "Memory Transition Faults sec": {
+        "object": "Memory",
+        "counter": "Transition Faults/sec",
+        "instance": ""
+    },
+    "Memory System Cache Resident Bytes": {
+        "object": "Memory",
+        "counter": "System Cache Resident Bytes",
+        "instance": ""
+    },
+    "Memory Long-Term Average Standby Cache Lifetime (s)": {
+        "object": "Memory",
+        "counter": "Long-Term Average Standby Cache Lifetime (s)",
+        "instance": ""
+    },
+    "Memory Standby Cache Reserve Bytes": {
+        "object": "Memory",
+        "counter": "Standby Cache Reserve Bytes",
+        "instance": ""
+    },
+    "Memory Page Writes sec": {
+        "object": "Memory",
+        "counter": "Page Writes/sec",
+        "instance": ""
+    },
+    "Memory System Code Total Bytes": {
+        "object": "Memory",
+        "counter": "System Code Total Bytes",
+        "instance": ""
+    },
+    "Memory Standby Cache Core Bytes": {
+        "object": "Memory",
+        "counter": "Standby Cache Core Bytes",
+        "instance": ""
+    },
+    "Memory System Driver Resident Bytes": {
+        "object": "Memory",
+        "counter": "System Driver Resident Bytes",
+        "instance": ""
+    },
+    "Memory Standby Cache Normal Priority Bytes": {
+        "object": "Memory",
+        "counter": "Standby Cache Normal Priority Bytes",
+        "instance": ""
+    },
+    "Memory Pool Paged Allocs": {
+        "object": "Memory",
+        "counter": "Pool Paged Allocs",
+        "instance": ""
+    },
+    "Memory Pool Nonpaged Allocs": {
+        "object": "Memory",
+        "counter": "Pool Nonpaged Allocs",
+        "instance": ""
+    },
+    "Memory pct_ Committed Bytes In Use": {
+        "object": "Memory",
+        "counter": "% Committed Bytes In Use",
+        "instance": ""
+    },
+    "Memory Free System Page Table Entries": {
+        "object": "Memory",
+        "counter": "Free System Page Table Entries",
+        "instance": ""
+    },
+    "Memory Available MBytes": {
+        "object": "Memory",
+        "counter": "Available MBytes",
+        "instance": ""
+    },
+    "Memory Modified Page List Bytes": {
+        "object": "Memory",
+        "counter": "Modified Page List Bytes",
+        "instance": ""
+    },
+    "Memory Cache Faults sec": {
+        "object": "Memory",
+        "counter": "Cache Faults/sec",
+        "instance": ""
+    },
+    "Memory Committed Bytes": {
+        "object": "Memory",
+        "counter": "Committed Bytes",
+        "instance": ""
+    },
+    "Memory System Driver Total Bytes": {
+        "object": "Memory",
+        "counter": "System Driver Total Bytes",
+        "instance": ""
+    },
+    "Memory Pages Input sec": {
+        "object": "Memory",
+        "counter": "Pages Input/sec",
+        "instance": ""
+    },
+    "Memory Pool Paged Resident Bytes": {
+        "object": "Memory",
+        "counter": "Pool Paged Resident Bytes",
+        "instance": ""
+    },
+    "Memory Write Copies sec": {
+        "object": "Memory",
+        "counter": "Write Copies/sec",
+        "instance": ""
+    },
+    "LogicalDisk(_Total) Avg  Disk Bytes Write": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk Bytes/Write",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) pct_ Idle Time": {
+        "object": "LogicalDisk",
+        "counter": "% Idle Time",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Disk Reads sec": {
+        "object": "LogicalDisk",
+        "counter": "Disk Reads/sec",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) pct_ Free Space": {
+        "object": "LogicalDisk",
+        "counter": "% Free Space",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Disk Read Bytes sec": {
+        "object": "LogicalDisk",
+        "counter": "Disk Read Bytes/sec",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk sec Read": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk sec/Read",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Disk Writes sec": {
+        "object": "LogicalDisk",
+        "counter": "Disk Writes/sec",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Current Disk Queue Length": {
+        "object": "LogicalDisk",
+        "counter": "Current Disk Queue Length",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Split IO Sec": {
+        "object": "LogicalDisk",
+        "counter": "Split IO/Sec",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Free Megabytes": {
+        "object": "LogicalDisk",
+        "counter": "Free Megabytes",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk sec Write": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk sec/Write",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Disk Bytes sec": {
+        "object": "LogicalDisk",
+        "counter": "Disk Bytes/sec",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk Read Queue Length": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk Read Queue Length",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) pct_ Disk Time": {
+        "object": "LogicalDisk",
+        "counter": "% Disk Time",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk Bytes Read": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk Bytes Read",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk Write Queue Length": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk Write Queue Length",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk Queue Length": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk Queue Length",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) pct_ Disk Read Time": {
+        "object": "LogicalDisk",
+        "counter": "% Disk Read Time",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Disk Write Bytes sec": {
+        "object": "LogicalDisk",
+        "counter": "Disk Write Bytes/sec",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Disk Transfers sec": {
+        "object": "LogicalDisk",
+        "counter": "Disk Transfers/sec",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk Bytes Transfer": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk Bytes/Transfer",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) pct_ Disk Write Time": {
+        "object": "LogicalDisk",
+        "counter": "% Disk Write Time",
+        "instance": "_Total"
+    },
+    "LogicalDisk(_Total) Avg  Disk sec Transfer": {
+        "object": "LogicalDisk",
+        "counter": "Avg. Disk sec/Transfer",
+        "instance": "_Total"
+    }
+}
