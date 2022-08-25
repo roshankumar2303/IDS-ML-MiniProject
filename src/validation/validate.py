@@ -13,8 +13,8 @@ from sklearn.metrics import (
 # Adding CWD to path, for local module imports
 sys.path.insert(0, os.getcwd())
 # ------------------------------------------------------------
-from src.features.build_features import select_k_best_features
 from src.features.clean_data import clean_data
+from src.features.choose_feature_selector import choose_feature_selector
 from src.model.select_classifier import select_classifier
 
 
@@ -30,6 +30,7 @@ Y = training_set.iloc[:, yc - 1]
 # CROSS VALIDATION - STRATIFIED K-FOLD - (k = 5)
 skf = StratifiedKFold(n_splits=5)
 report = {
+    "feature_selector": "",
     "clf_name": "",
     "clf_precision": [],
     "clf_recall": [],
@@ -41,6 +42,9 @@ report = {
 
 # Choosing Classifier for Cross Validation
 report["clf_name"], classifier = select_classifier()
+
+# Choosing Selector for Feature selection
+report["feature_selector"], feature_selector = choose_feature_selector()
 
 # K-ITERATIONS OF STRATIFIED K-FOLD CROSS VALIDATION
 iter_count = 1
@@ -55,7 +59,7 @@ for train_idx, val_idx in skf.split(X, Y):
 
     # Clean data and perform feature selection on Training-X data
     print("Performing feature selection on training data...")
-    features, train_X_fold, train_Y_fold = select_k_best_features(train_X_fold, train_Y_fold)
+    features, train_X_fold, train_Y_fold = feature_selector(train_X_fold, train_Y_fold)
     for feature in features:
         if feature in report["clf_features"]:
             report["clf_features"][feature] += 1
@@ -92,7 +96,10 @@ for train_idx, val_idx in skf.split(X, Y):
 
 # Dump the validation report into a JSON file
 report_path = (
-    Path.cwd() / "reports/validation_report_{}.json".format(report["clf_name"])
+    Path.cwd()
+    / "reports/report-val-{}-{}.json".format(
+        report["clf_name"], report["feature_selector"]
+    )
 ).resolve()
 with open(report_path, "w") as json_file:
     json.dump(report, fp=json_file, indent=4)

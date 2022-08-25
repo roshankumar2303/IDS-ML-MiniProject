@@ -1,5 +1,6 @@
 {
-    "clf_name": "naive_bayes",
+    "clf_name": "knn",
+    "feature_selector": "skb",
     "clf_features": [
         "Processor_pct_ Idle_Time",
         "Processor_pct_ Interrupt_Time",

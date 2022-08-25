@@ -65,17 +65,17 @@ ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/
 
 ## Running the Project
 
-The following is the order in which the scripts are supposed to be run (This order is mandatory):
+The following is the order in which the scripts are to be run (This order is mandatory):
 
 ### `src/data/get_dataset.py`
 
--   This script downloads the External dataset to the disk. If there's any non-network issue in downloading, please verify the link provided in the script
+-   This script downloads the External dataset to the disk. If there's any non-network issue in downloading, please check if the dataset URL used in the script is still valid
 
 ### `src/data/train_test_split.py`
 
--   Before splitting into Train & Test sets, the following transformations are made by this script:
+-   Before splitting into Training & Testing sets, the following data transformations are made by this script:
 
-    -   The output columns `label` and `type` are merged into a single column `type`; with string labels converted into numbers as follows:
+    -   The output columns `label` and `type` are merged into a single column `type`; with the string labels converted into numerics:
 
     ```
     "normal": 0
@@ -88,24 +88,42 @@ The following is the order in which the scripts are supposed to be run (This ord
     "xss": 7
     ```
 
-    -   Unknown datatypes are converted into numeric (In case the conversion fails, the cells are filled with `NaN` instead)
+    -   Unknown datatypes are converted into numerics (In case of error during conversion, the respective cells are filled with `NaN` instead)
 
-    -   The timestamp column `ts` (1st column) is dropped since it is irrelevant to the output
+    -   The timestamp column: `ts` (1st column) is dropped since it is irrelevant
 
-    -   All the constant columns (i.e., columns filled with a single value) are also dropped
+    -   All the constant columns (i.e., columns filled entirely with only a single value) are also dropped
 
--   After all the above steps, this script splits the External dataset into Training (0.8) and Testing (0.2) sets
+-   After all the above steps, this script splits the External dataset into Training (80%) and Testing (20%) sets
 
 ### `src/validation/validate.py`
 
--   This script performs Stratified K fold cross validation. i.e., each fold maintains the same o/p class ratio
+-   This script performs Stratified K-fold cross validation. i.e., each generated fold maintains the same o/p class ratio
 
--   The training set is split into k `(k = 5)` folds (or partitions); and the model is trained and tested over k `(k = 5)` iterations
+-   The training set is split into k `(k = 5)` folds (or partitions); and the model (KNN / SVM / Naive Bayes) will be trained and tested over k `(k = 5)` iterations
 
--   In each iteration, the **_Training fold_** is made of `k - 1` (i.e., 4) folds from the original training set, whereas the **_Validation fold_** is made of 1 fold from original training set
+-   In each iteration, a **_Training fold_** is made from `k - 1` (i.e., 4) folds of the original training set, and similarly, a **_Validation fold_** is made from one fold.
 
--   Throughout the process, in each iteration, feature selection is performed on the **_Training fold_** seperately.
+-   Throughout the process, in each iteration, Feature Selection (Select K Best / RFE) is performed on the **_Training fold_** seperately.
 
--   The Model is then trained with the Processed **_Training Fold_** and Tested against the **_Validation fold_**.
+-   The Model (KNN / SVM / Naive Bayes) is then trained with the Processed **_Training Fold_** and Tested against the **_Validation fold_**.
 
--   At the end, the script provides the list of best features for the model, and the performance metrics of the model
+-   At the end, the script generates a report with performance metrics of the model, and the list of features selected and used in the validation
+
+### `src/model/train_model.py`
+
+-   This script chooses a classifier (KNN / SVM / Naive Bayes) and feature selector (Select K Best / RFE) specified by the user to train a ML model
+
+-   Feature selection (Select K Best / RFE) is performed on the Training Set, and the Model is then trained and exported as a `.sav` file using `joblib`
+
+-   This script also generates a report containing the name of the classifier (KNN / SVM / Naive Bayes), the feature selector (Select K Best / RFE), and the list of features selected.
+
+-   This report is important as it is needed for performing testing on the model using `src/test/test_model.py`
+
+### `src/testing/test_model.py`
+
+-   This script performs testing on all the models `(*.sav files)` found in `models/` folder
+
+-   As output, this script generates heatmap of the confusion matrix obtained by using Testing set on the respective model
+
+> Note: All the reports, heatmaps, etc., generated are stored in `reports/` folder

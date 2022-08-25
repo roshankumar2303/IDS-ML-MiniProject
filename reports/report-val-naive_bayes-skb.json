@@ -1,4 +1,5 @@
 {
+    "feature_selector": "skb",
     "clf_name": "naive_bayes",
     "clf_precision": [
         0.8626983702514173, 0.8655790829494938, 0.8640897896608658,
