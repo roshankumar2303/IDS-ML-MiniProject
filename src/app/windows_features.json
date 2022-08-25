@@ -232,182 +232,182 @@
     "Memory Pool Paged Bytes": {
         "object": "Memory",
         "counter": "Pool Paged Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Free & Zero Page List Bytes": {
         "object": "Memory",
         "counter": "Free & Zero Page List Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Cache Bytes Peak": {
         "object": "Memory",
         "counter": "Cache Bytes Peak",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory System Code Resident Bytes": {
         "object": "Memory",
         "counter": "System Code Resident Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Available Bytes": {
         "object": "Memory",
         "counter": "Available Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Commit Limit": {
         "object": "Memory",
         "counter": "Commit Limit",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Transition Pages RePurposed sec": {
         "object": "Memory",
         "counter": "Transition Pages RePurposed/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Pages Output sec": {
         "object": "Memory",
         "counter": "Pages Output/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Page Reads sec": {
         "object": "Memory",
         "counter": "Page Reads/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Demand Zero Faults sec": {
         "object": "Memory",
         "counter": "Demand Zero Faults/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Available KBytes": {
         "object": "Memory",
         "counter": "Available KBytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Pages sec": {
         "object": "Memory",
         "counter": "Pages/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Cache Bytes": {
         "object": "Memory",
         "counter": "Cache Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Pool Nonpaged Bytes": {
         "object": "Memory",
         "counter": "Pool Nonpaged Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Page Faults sec": {
         "object": "Memory",
         "counter": "Page Faults/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Transition Faults sec": {
         "object": "Memory",
         "counter": "Transition Faults/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory System Cache Resident Bytes": {
         "object": "Memory",
         "counter": "System Cache Resident Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Long-Term Average Standby Cache Lifetime (s)": {
         "object": "Memory",
         "counter": "Long-Term Average Standby Cache Lifetime (s)",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Standby Cache Reserve Bytes": {
         "object": "Memory",
         "counter": "Standby Cache Reserve Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Page Writes sec": {
         "object": "Memory",
         "counter": "Page Writes/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory System Code Total Bytes": {
         "object": "Memory",
         "counter": "System Code Total Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Standby Cache Core Bytes": {
         "object": "Memory",
         "counter": "Standby Cache Core Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory System Driver Resident Bytes": {
         "object": "Memory",
         "counter": "System Driver Resident Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Standby Cache Normal Priority Bytes": {
         "object": "Memory",
         "counter": "Standby Cache Normal Priority Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Pool Paged Allocs": {
         "object": "Memory",
         "counter": "Pool Paged Allocs",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Pool Nonpaged Allocs": {
         "object": "Memory",
         "counter": "Pool Nonpaged Allocs",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory pct_ Committed Bytes In Use": {
         "object": "Memory",
         "counter": "% Committed Bytes In Use",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Free System Page Table Entries": {
         "object": "Memory",
         "counter": "Free System Page Table Entries",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Available MBytes": {
         "object": "Memory",
         "counter": "Available MBytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Modified Page List Bytes": {
         "object": "Memory",
         "counter": "Modified Page List Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Cache Faults sec": {
         "object": "Memory",
         "counter": "Cache Faults/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Committed Bytes": {
         "object": "Memory",
         "counter": "Committed Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory System Driver Total Bytes": {
         "object": "Memory",
         "counter": "System Driver Total Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Pages Input sec": {
         "object": "Memory",
         "counter": "Pages Input/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Pool Paged Resident Bytes": {
         "object": "Memory",
         "counter": "Pool Paged Resident Bytes",
-        "instance": ""
+        "instance": "_Total"
     },
     "Memory Write Copies sec": {
         "object": "Memory",
         "counter": "Write Copies/sec",
-        "instance": ""
+        "instance": "_Total"
     },
     "LogicalDisk(_Total) Avg  Disk Bytes Write": {
         "object": "LogicalDisk",
