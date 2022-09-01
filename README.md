@@ -2,6 +2,18 @@
 
 Academic Mini Project - Training and Analysis of Machine Learning Models for an Intrusion Detection System
 
+## The Team
+
+-   Roshan [@roshankumar2303](https://github.com/roshankumar2303)
+
+-   Shree Shrutha [@shruthareddy](https://github.com/shruthareddy)
+
+-   Hruday Vikas [@SakivYadurh](https://github.com/SakivYadurh)
+
+-   Yahwanth [@YahwanthSabbithi](https://github.com/YahwanthSabbithi)
+
+-   Avinash [@avinashreddy-11105](https://github.com/avinashreddy-11105)
+
 ## Dataset used
 
 ToN-IoT datasets (University of New South Wales) - https://research.unsw.edu.au/projects/toniot-datasets
