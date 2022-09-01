@@ -1,0 +1,10 @@
+{
+    "0": "normal",
+    "1": "ddos",
+    "2": "dos",
+    "3": "injection",
+    "4": "mitm",
+    "5": "password",
+    "6": "scanning",
+    "7": "xss"
+}
